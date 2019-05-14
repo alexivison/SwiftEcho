@@ -8,12 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for SwiftEcho.
 FOUNDATION_EXPORT double SwiftEchoVersionNumber;
-
-//! Project version string for SwiftEcho.
 FOUNDATION_EXPORT const unsigned char SwiftEchoVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <SwiftEcho/PublicHeader.h>
-
-
