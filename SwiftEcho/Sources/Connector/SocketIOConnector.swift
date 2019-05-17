@@ -9,8 +9,7 @@
 import Foundation
 import SocketIO
 
-class SocketIOConnector: Connector {
-    private var log: Bool
+open class SocketIOConnector: Connector {
     private var manager: SocketManager?
     private var socket: SocketIOClient?
     
@@ -35,9 +34,8 @@ class SocketIOConnector: Connector {
      
      - Parameter options: Custom options
      */
-    init(options: [String: Any], log: Bool) {
+    public init(options: [String: Any]) {
         self.options = options
-        self.log = log
         self.channels = [:]
         self.setOptions(options: options)
         self.connect()
@@ -48,15 +46,15 @@ class SocketIOConnector: Connector {
      
      - Parameter options: Custom options
      */
-    func setOptions(options: [String: Any]) {
+    open func setOptions(options: [String: Any]) {
         self.options =  self.mergeOptions(options: options)
     }
     
     // Create a fresh Socket.io connection.
-    func connect() {
+    open func connect() {
         if let url = self.options["host"] as? String {
             let nurl: URL! = URL(string: url)
-            self.manager = SocketManager(socketURL: nurl, config: [.log(self.log), .compress, .forceWebsockets(true)])
+            self.manager = SocketManager(socketURL: nurl, config: [.log(true), .compress, .forceWebsockets(true)])
             self.socket = manager?.defaultSocket
             self.socket?.connect()
         }
@@ -69,7 +67,7 @@ class SocketIOConnector: Connector {
         - event: Event name
         - callback: Normal callback
      */
-    func on(event: String, callback: @escaping NormalCallback) {
+    open func on(event: String, callback: @escaping NormalCallback) {
         self.socket!.on(event, callback: callback)
     }
     
@@ -80,7 +78,7 @@ class SocketIOConnector: Connector {
         - event: Event name
         - callback: Normal callback
      */
-    func on(clientEvent: SocketClientEvent, callback: @escaping NormalCallback) {
+    open func on(clientEvent: SocketClientEvent, callback: @escaping NormalCallback) {
         self.socket?.on(clientEvent: clientEvent, callback: callback)
     }
     
@@ -93,7 +91,7 @@ class SocketIOConnector: Connector {
         - callback: Normal callback
      - Returns: The channel
      */
-    func listen(name : String, event: String, callback: @escaping NormalCallback) -> ChannelType {
+    open func listen(name : String, event: String, callback: @escaping NormalCallback) -> ChannelType {
         return self.channel(name: name).listen(event: event, callback: callback)
     }
     
@@ -103,7 +101,7 @@ class SocketIOConnector: Connector {
      - Parameter name: Channel name
      - Returns: The channel
      */
-    func channel(name: String) -> ChannelType {
+    open func channel(name: String) -> ChannelType {
         if self.channels[name] == nil {
             let socket: SocketIOClient! = self.socket
             self.channels[name] = SocketIoChannel(
@@ -118,7 +116,7 @@ class SocketIOConnector: Connector {
      - Parameter name: Private channel name
      - Returns: The private channel
      */
-    func privateChannel(name: String) -> PrivateChannelType {
+    open func privateChannel(name: String) -> PrivateChannelType {
         if self.channels["private-" + name] == nil {
             let socket: SocketIOClient! = self.socket
             self.channels["private-" + name] = SocketIOPrivateChannel(
@@ -133,7 +131,7 @@ class SocketIOConnector: Connector {
      - Parameter name: Presence channel name
      - Returns: The presence channel
      */
-    func presenceChannel(name: String) -> PresenceChannelType {
+    open func presenceChannel(name: String) -> PresenceChannelType {
         if self.channels["presence-" + name] == nil {
             let socket: SocketIOClient! = self.socket
             self.channels["presence-" + name] = SocketIOPresenceChannel(
@@ -147,7 +145,7 @@ class SocketIOConnector: Connector {
      
      - Parameter name: Channel name
      */
-    func leave(name: String) {
+    open func leave(name: String) {
         let channels: [String] = [name, "private-" + name, "presence-" + name];
         for name in channels{
             if let c = self.channels[name] {
@@ -162,7 +160,7 @@ class SocketIOConnector: Connector {
      
      - Returns: The socket id
      */
-    func socketId() -> String {
+    open func socketId() -> String {
         guard let socket: SocketIOClient = self.socket else {
             return ""
         }
@@ -170,7 +168,7 @@ class SocketIOConnector: Connector {
     }
     
     // Disconnect from the Echo server.
-    func disconnect() {
+    open func disconnect() {
         let socket: SocketIOClient! = self.socket
         socket.disconnect()
     }
@@ -181,7 +179,7 @@ class SocketIOConnector: Connector {
      - Parameter options: Custom options
      - Returns: Merged options
      */
-    func mergeOptions(options : [String: Any]) -> [String: Any] {
+    private func mergeOptions(options : [String: Any]) -> [String: Any] {
         var def = self.defaultOptions
         for (k, v) in options{
             def[k] = v

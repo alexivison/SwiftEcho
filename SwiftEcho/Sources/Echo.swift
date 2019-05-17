@@ -10,7 +10,6 @@ import Foundation
 import SocketIO
 
 open class Echo {
-    var log: Bool
     var connector: Connector
     var options: [String: Any]
     
@@ -21,10 +20,9 @@ open class Echo {
         - options: options
         - log: disable or enable log output
      */
-    init(options: [String: Any], log: Bool) {
+    public init(options: [String: Any]) {
         self.options = options
-        self.log = log
-        self.connector = SocketIOConnector(options: self.options, log: self.log);
+        self.connector = SocketIOConnector(options: self.options);
     }
     /**
      Fired when a connection to the socket is established
