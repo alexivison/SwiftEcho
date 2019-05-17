@@ -8,7 +8,7 @@
 
 import Foundation
 
-class EchoParser {
+open class EchoParser {
     
     /**
      Parse the socket.io response data into readable form

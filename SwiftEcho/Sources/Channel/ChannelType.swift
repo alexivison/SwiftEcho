@@ -9,7 +9,7 @@
 import Foundation
 import SocketIO
 
-protocol ChannelType {
+public protocol ChannelType {
     
     /**
      Listen for an event on the channel instance.

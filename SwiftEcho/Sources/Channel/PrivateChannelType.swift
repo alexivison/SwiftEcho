@@ -9,7 +9,7 @@
 import Foundation
 import SocketIO
 
-protocol PrivateChannelType: ChannelType {
+public protocol PrivateChannelType: ChannelType {
 
     /**
      Trigger client event on the channel.

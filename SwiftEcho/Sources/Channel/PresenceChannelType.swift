@@ -9,7 +9,7 @@
 import Foundation
 import SocketIO
 
-protocol PresenceChannelType {
+public protocol PresenceChannelType {
 
     /**
      Register a callback to be called anytime the member list changes.
