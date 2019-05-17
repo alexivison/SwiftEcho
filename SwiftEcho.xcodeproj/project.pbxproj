@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB7D8EE322893DA5008A784B /* SwiftEcho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7D8ED922893DA4008A784B /* SwiftEcho.framework */; };
-		EB7D8EE822893DA5008A784B /* SwiftEchoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8EE722893DA5008A784B /* SwiftEchoTests.swift */; };
 		EB7D8EEA22893DA5008A784B /* SwiftEcho.h in Headers */ = {isa = PBXBuildFile; fileRef = EB7D8EDC22893DA4008A784B /* SwiftEcho.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB7D8EFC22893EF3008A784B /* PresenceChannelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8EF522893EF3008A784B /* PresenceChannelType.swift */; };
 		EB7D8EFD22893EF3008A784B /* SocketIOChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8EF622893EF3008A784B /* SocketIOChannel.swift */; };
@@ -28,22 +26,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EB7D8EE422893DA5008A784B /* PBXContainerItemProxy */ = {
+		EB065AE3228E9809009EB138 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EB7D8ED022893DA4008A784B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EB7D8ED822893DA4008A784B;
-			remoteInfo = SwiftEcho;
+			containerPortal = EB065ADF228E9808009EB138 /* Example.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB065ACA228E9805009EB138;
+			remoteInfo = Example;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB065ADF228E9808009EB138 /* Example.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Example.xcodeproj; path = Example/Example.xcodeproj; sourceTree = "<group>"; };
 		EB7D8ED922893DA4008A784B /* SwiftEcho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftEcho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7D8EDC22893DA4008A784B /* SwiftEcho.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftEcho.h; sourceTree = "<group>"; };
 		EB7D8EDD22893DA4008A784B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB7D8EE222893DA5008A784B /* SwiftEchoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftEchoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB7D8EE722893DA5008A784B /* SwiftEchoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftEchoTests.swift; sourceTree = "<group>"; };
-		EB7D8EE922893DA5008A784B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB7D8EF522893EF3008A784B /* PresenceChannelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenceChannelType.swift; sourceTree = "<group>"; };
 		EB7D8EF622893EF3008A784B /* SocketIOChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOChannel.swift; sourceTree = "<group>"; };
 		EB7D8EF722893EF3008A784B /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -71,22 +67,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB7D8EDF22893DA5008A784B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB7D8EE322893DA5008A784B /* SwiftEcho.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB065A9B228E925E009EB138 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				EB065ADF228E9808009EB138 /* Example.xcodeproj */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		EB065AE0228E9808009EB138 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB065AE4228E9809009EB138 /* Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EB7D8ECF22893DA4008A784B = {
 			isa = PBXGroup;
 			children = (
 				EB7D8EDB22893DA4008A784B /* SwiftEcho */,
-				EB7D8EE622893DA5008A784B /* SwiftEchoTests */,
 				EB7D8EDA22893DA4008A784B /* Products */,
 				EB84731E228A549B00817894 /* Frameworks */,
 			);
@@ -96,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				EB7D8ED922893DA4008A784B /* SwiftEcho.framework */,
-				EB7D8EE222893DA5008A784B /* SwiftEchoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,21 +106,13 @@
 		EB7D8EDB22893DA4008A784B /* SwiftEcho */ = {
 			isa = PBXGroup;
 			children = (
+				EB065A9B228E925E009EB138 /* Example */,
 				EB7D8EF322893E44008A784B /* Sources */,
 				EB7D8EDC22893DA4008A784B /* SwiftEcho.h */,
 				EB847323228A68C400817894 /* SwiftEcho-Swift.h */,
 				EB7D8EDD22893DA4008A784B /* Info.plist */,
 			);
 			path = SwiftEcho;
-			sourceTree = "<group>";
-		};
-		EB7D8EE622893DA5008A784B /* SwiftEchoTests */ = {
-			isa = PBXGroup;
-			children = (
-				EB7D8EE722893DA5008A784B /* SwiftEchoTests.swift */,
-				EB7D8EE922893DA5008A784B /* Info.plist */,
-			);
-			path = SwiftEchoTests;
 			sourceTree = "<group>";
 		};
 		EB7D8EF322893E44008A784B /* Sources */ = {
@@ -207,26 +201,6 @@
 			productReference = EB7D8ED922893DA4008A784B /* SwiftEcho.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		EB7D8EE122893DA5008A784B /* SwiftEchoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EB7D8EF022893DA5008A784B /* Build configuration list for PBXNativeTarget "SwiftEchoTests" */;
-			buildPhases = (
-				861881FF3C8919034FF36B66 /* [CP] Check Pods Manifest.lock */,
-				EB7D8EDE22893DA5008A784B /* Sources */,
-				EB7D8EDF22893DA5008A784B /* Frameworks */,
-				EB7D8EE022893DA5008A784B /* Resources */,
-				3D81AAE8B7BBD020ED46F986 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EB7D8EE522893DA5008A784B /* PBXTargetDependency */,
-			);
-			name = SwiftEchoTests;
-			productName = SwiftEchoTests;
-			productReference = EB7D8EE222893DA5008A784B /* SwiftEchoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -238,9 +212,6 @@
 				ORGANIZATIONNAME = "tuominen-aleksi";
 				TargetAttributes = {
 					EB7D8ED822893DA4008A784B = {
-						CreatedOnToolsVersion = 10.2.1;
-					};
-					EB7D8EE122893DA5008A784B = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -255,13 +226,28 @@
 			mainGroup = EB7D8ECF22893DA4008A784B;
 			productRefGroup = EB7D8EDA22893DA4008A784B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EB065AE0228E9808009EB138 /* Products */;
+					ProjectRef = EB065ADF228E9808009EB138 /* Example.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EB7D8ED822893DA4008A784B /* SwiftEcho */,
-				EB7D8EE122893DA5008A784B /* SwiftEchoTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EB065AE4228E9809009EB138 /* Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Example.app;
+			remoteRef = EB065AE3228E9809009EB138 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EB7D8ED722893DA4008A784B /* Resources */ = {
@@ -271,62 +257,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB7D8EE022893DA5008A784B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3D81AAE8B7BBD020ED46F986 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftEchoTests/Pods-SwiftEchoTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftEchoTests/Pods-SwiftEchoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		861881FF3C8919034FF36B66 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SwiftEchoTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EB84731D228A53BD00817894 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -371,23 +304,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB7D8EDE22893DA5008A784B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB7D8EE822893DA5008A784B /* SwiftEchoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EB7D8EE522893DA5008A784B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EB7D8ED822893DA4008A784B /* SwiftEcho */;
-			targetProxy = EB7D8EE422893DA5008A784B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EB7D8EEB22893DA5008A784B /* Debug */ = {
@@ -572,42 +489,6 @@
 			};
 			name = Release;
 		};
-		EB7D8EF122893DA5008A784B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SwiftEchoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aleksi.tuominen.SwiftEchoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		EB7D8EF222893DA5008A784B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SwiftEchoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aleksi.tuominen.SwiftEchoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -625,15 +506,6 @@
 			buildConfigurations = (
 				EB7D8EEE22893DA5008A784B /* Debug */,
 				EB7D8EEF22893DA5008A784B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EB7D8EF022893DA5008A784B /* Build configuration list for PBXNativeTarget "SwiftEchoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EB7D8EF122893DA5008A784B /* Debug */,
-				EB7D8EF222893DA5008A784B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
