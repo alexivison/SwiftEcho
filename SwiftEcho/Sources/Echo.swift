@@ -10,7 +10,7 @@ import Foundation
 import SocketIO
 
 open class Echo {
-    var connector: Connector
+    var connector: ConnectorType
     var options: [String: Any]
     
     /**
@@ -64,7 +64,7 @@ open class Echo {
         - callback: Normal callback
      - Returns: The listened channel
     */
-    open func listen(channel: String, event: String, callback: @escaping NormalCallback) -> ChannelType {
+    @discardableResult open func listen(channel: String, event: String, callback: @escaping NormalCallback) -> ChannelType {
         return self.connector.listen(name: channel, event: event, callback: callback);
     }
     
@@ -74,26 +74,28 @@ open class Echo {
      - Parameter Channel: channel name
      - Returns: The channel
      */
-    open func channel(channel: String) -> ChannelType {
+    open func join(channel: String) -> ChannelType {
         return self.connector.channel(name: channel);
     }
+
     /**
      Get a private channel instance by name.
      
      - Parameter Channel: channel name
      - Returns: The private channel
      */
-    open func privateChannel(channel: String) -> ChannelType {
-        return self.connector.privateChannel(name:channel);
+    open func join(privateChannel: String) -> PrivateChannelType {
+        return self.connector.privateChannel(name: privateChannel);
     }
+    
     /**
      Get a presence channel instance by name.
      
      - Parameter Channel: channel name
      - Returns: The private channel
      */
-    open func join(channel: String) -> PresenceChannelType {
-        return self.connector.presenceChannel(name:channel)
+    open func join(presenceChannel: String) -> PresenceChannelType {
+        return self.connector.presenceChannel(name: presenceChannel)
     }
     
     /**

@@ -9,7 +9,7 @@
 import Foundation
 import SocketIO
 
-protocol Connector {
+protocol ConnectorType {
 
     // Create a fresh connection.
     func connect()

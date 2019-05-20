@@ -9,7 +9,7 @@
 import Foundation
 import SocketIO
 
-open class SocketIOConnector: Connector {
+open class SocketIOConnector: ConnectorType {
     private var manager: SocketManager?
     private var socket: SocketIOClient?
     
