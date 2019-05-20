@@ -30,22 +30,28 @@ class ViewController: UIViewController {
         // Init
         self.echo = Echo(options: options)
         self.echo.connected { (data, _) in
-            // Default channel & Private channel
-            self.echo
-                .listen(channel: "chat.\(self.chatId)", event: "comment.created") { (comment, _) in
-                    print("RESPONSE: ", comment)
-                }.unsubscribe()
+            // Listening a channel
+            self.echo.join(channel: "chat.\(self.chatId)")
+                .listen(event: "comment.created", callback: { (data, ack) in
+                    
+                })
+            
+            // Private channel
+            self.echo.join(privateChannel: "private_chat.\(self.chatId)")
+                .listen(event: "comment.created", callback: { (data, ack) in
+                    
+                })
+
             // Presence channel
-            self.echo
-                .join(channel: "chat.\(self.chatId)")
+            self.echo.join(presenceChannel: "users.\(self.chatId)")
                 .here(callback: { (data, ack) in
-                    print("HERE")
+                    
                 })
                 .joining(callback: { (data, ack) in
-                    print("Joining")
+                    
                 })
                 .leaving(callback: { (data, ack) in
-                    print("Leaving")
+                    
                 })
         }
     }
