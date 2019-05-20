@@ -19,7 +19,7 @@ public protocol ChannelType {
         - callback: Normal callback
      - Returns: The channel itself
      */
-    func listen(event: String, callback: @escaping NormalCallback) -> ChannelType
+    @discardableResult func listen(event: String, callback: @escaping NormalCallback) -> ChannelType
     
     /**
      Listen for an event on the channel instance.
@@ -27,7 +27,7 @@ public protocol ChannelType {
      - Parameter callback: Normal callback
      - Returns: The channel itself
      */
-    func notification(callback: @escaping NormalCallback) -> ChannelType
+    @discardableResult func notification(callback: @escaping NormalCallback) -> ChannelType
     
     /**
      Listen for a whisper event on the channel instance.
@@ -37,7 +37,7 @@ public protocol ChannelType {
         - callback: Normal callback
      - Returns: The channel itself
      */
-    func listenForWhisper(event: String, callback: @escaping NormalCallback) -> ChannelType
+    @discardableResult func listenForWhisper(event: String, callback: @escaping NormalCallback) -> ChannelType
     
     // Unsubscribe from channel and ubind event callbacks.
     func unsubscribe()
