@@ -11,7 +11,7 @@ import SwiftEcho
 
 class ViewController: UIViewController {
     
-    private var echo: Echo!
+    private var echo: EchoClient!
     private let chatId: Int = 123
 
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         ]
         
         // Init
-        self.echo = Echo(options: options)
+        self.echo = EchoClient(options: options)
         self.echo.connected { (data, _) in
             // Listening a channel
             self.echo.join(channel: "chat.\(self.chatId)")

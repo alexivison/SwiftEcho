@@ -9,7 +9,7 @@
 import Foundation
 import SocketIO
 
-open class Echo {
+open class EchoClient {
     var connector: ConnectorType
     var options: [String: Any]
     
