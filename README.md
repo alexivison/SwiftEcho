@@ -81,6 +81,15 @@ echoClient.join(channel: "chat.\(chatId)")
         ...
     })
 ```
+
+### Listen to a private channel
+```
+echoClient.join(privateChannel: "private_chat.\(chatId)")
+    .listen("comment.created", { (data, ack) in
+        ...
+    })
+```
+
 ### Joining a presence channel
 ```
 echoClient.join(presenceChannel: "users.\(chatId)")
