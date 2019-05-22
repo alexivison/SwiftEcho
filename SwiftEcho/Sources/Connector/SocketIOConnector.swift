@@ -67,7 +67,7 @@ open class SocketIOConnector: ConnectorType {
         - event: Event name
         - callback: Normal callback
      */
-    open func on(event: String, callback: @escaping NormalCallback) {
+    open func on(_ event: String, callback: @escaping NormalCallback) {
         self.socket!.on(event, callback: callback)
     }
     
@@ -86,13 +86,13 @@ open class SocketIOConnector: ConnectorType {
      Listen for an event on a channel instance.
      
      - Parameters:
-        - name: Channel name
+        - channel: Channel name
         - event: Event name
         - callback: Normal callback
      - Returns: The channel
      */
-    open func listen(name : String, event: String, callback: @escaping NormalCallback) -> ChannelType {
-        return self.channel(name: name).listen(event: event, callback: callback)
+    open func listen(channel: String, event: String, callback: @escaping NormalCallback) -> ChannelType {
+        return self.channel(name: channel).listen(event, callback)
     }
     
     /**
@@ -161,7 +161,7 @@ open class SocketIOConnector: ConnectorType {
      - Returns: The socket id
      */
     open func socketId() -> String {
-        guard let socket: SocketIOClient = self.socket else {
+        guard let socket = self.socket else {
             return ""
         }
         return socket.sid
@@ -181,7 +181,7 @@ open class SocketIOConnector: ConnectorType {
      */
     private func mergeOptions(options : [String: Any]) -> [String: Any] {
         var def = self.defaultOptions
-        for (k, v) in options{
+        for (k, v) in options {
             def[k] = v
         }
         return def

@@ -13,15 +13,15 @@ class NullChannel: ChannelType {
     
     init() {}
 
-    func listen(event: String, callback: @escaping NormalCallback) -> ChannelType {
+    func listen(_ event: String, _ callback: @escaping NormalCallback) -> ChannelType {
         return self
     }
     
-    func notification(callback: @escaping NormalCallback) -> ChannelType {
+    func notification(_ callback: @escaping NormalCallback) -> ChannelType {
         return self
     }
     
-    func listenForWhisper(event: String, callback: @escaping NormalCallback) -> ChannelType {
+    func listenForWhisper(_ event: String, _ callback: @escaping NormalCallback) -> ChannelType {
         return self
     }
     

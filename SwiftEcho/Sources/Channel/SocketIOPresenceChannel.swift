@@ -29,7 +29,7 @@ class SocketIOPresenceChannel: SocketIoChannel, PresenceChannelType {
      - Parameter callback: Normal callback
      - Returns: The presence channel itself
      */
-    func here(callback: @escaping NormalCallback) -> PresenceChannelType {
+    func here(_ callback: @escaping NormalCallback) -> PresenceChannelType {
         self.socket.on("presence:subscribed", callback: callback)
         return self;
     }
@@ -40,7 +40,7 @@ class SocketIOPresenceChannel: SocketIoChannel, PresenceChannelType {
      - Parameter callback: Normal callback
      - Returns: The presence channel itself
      */
-    func joining(callback: @escaping NormalCallback) -> PresenceChannelType {
+    func joining(_ callback: @escaping NormalCallback) -> PresenceChannelType {
         self.socket.on("presence:joining", callback: callback)
         return self;
     }
@@ -51,7 +51,7 @@ class SocketIOPresenceChannel: SocketIoChannel, PresenceChannelType {
      - Parameter callback: Normal callback
      - Returns: The presence channel itself
      */
-    func leaving(callback: @escaping NormalCallback) -> PresenceChannelType {
+    func leaving(_ callback: @escaping NormalCallback) -> PresenceChannelType {
         self.socket.on("presence:leaving", callback: callback)
         return self;
     }

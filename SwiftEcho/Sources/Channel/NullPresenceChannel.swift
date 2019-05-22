@@ -13,15 +13,15 @@ class NullPresenceChannel: NullChannel, PresenceChannelType {
     
     override init() {}
     
-    func here(callback: @escaping NormalCallback) -> PresenceChannelType {
+    func here(_ callback: @escaping NormalCallback) -> PresenceChannelType {
         return self
     }
     
-    func joining(callback: @escaping NormalCallback) -> PresenceChannelType {
+    func joining(_ callback: @escaping NormalCallback) -> PresenceChannelType {
         return self
     }
     
-    func leaving(callback: @escaping NormalCallback) -> PresenceChannelType {
+    func leaving(_ callback: @escaping NormalCallback) -> PresenceChannelType {
         return self
     }
 }

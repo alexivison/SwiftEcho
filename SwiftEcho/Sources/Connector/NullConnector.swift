@@ -15,15 +15,13 @@ open class NullConnector: ConnectorType {
 
     func connect() {}
     
-    func on(event: String, callback: @escaping NormalCallback) {}
-    
-    func on(clientEvent: SocketClientEvent, callback: @escaping NormalCallback) {}
+    func on(_ event: String, callback: @escaping NormalCallback) {}
     
     func channel(name: String) -> ChannelType {
         return NullChannel()
     }
     
-    func listen(name: String, event: String, callback: @escaping NormalCallback) -> ChannelType {
+    func listen(channel: String, event: String, callback: @escaping NormalCallback) -> ChannelType {
         return NullChannel()
     }
     

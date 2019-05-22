@@ -21,16 +21,7 @@ protocol ConnectorType {
         - event: Event name
         - callback: Normal callback
      */
-    func on(event: String, callback: @escaping NormalCallback)
-    
-    /**
-     Set a socket.io client event handler
-     
-     - Parameters:
-        - event: Socket.io client event
-        - callback: Normal Callback
-     */
-    func on(clientEvent: SocketClientEvent, callback: @escaping NormalCallback)
+    func on(_ event: String, callback: @escaping NormalCallback)
     
     /**
      Get a channel instance by name.
@@ -44,12 +35,12 @@ protocol ConnectorType {
      Listen an event on a channel
      
      - Parameters:
-        - name: Channel name
+        - channel: Channel name
         - event: Event name
         - callback: Normal callback
      - Returns: The channel
      */
-    func listen(name: String, event: String, callback: @escaping NormalCallback) -> ChannelType
+    func listen(channel: String, event: String, callback: @escaping NormalCallback) -> ChannelType
     
     /**
      Get a private channel instance by name.

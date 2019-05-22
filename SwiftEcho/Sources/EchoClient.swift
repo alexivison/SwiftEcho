@@ -10,8 +10,8 @@ import Foundation
 import SocketIO
 
 open class EchoClient {
-    var connector: ConnectorType
-    var options: [String: Any]
+    private var connector: ConnectorType
+    private var options: [String: Any]
     
     /**
      Create a new class instance.
@@ -22,15 +22,7 @@ open class EchoClient {
      */
     public init(options: [String: Any]) {
         self.options = options
-        self.connector = SocketIOConnector(options: self.options);
-    }
-    /**
-     Fired when a connection to the socket is established
-     
-     - Parameter callback: Normal callback
-     */
-    open func connected(callback: @escaping NormalCallback) {
-        return self.on(clientEvent: .connect, callback: callback)
+        self.connector = SocketIOConnector(options: self.options)
     }
     
     /**
@@ -40,8 +32,8 @@ open class EchoClient {
         - event: Event name
         - callback: Normal callback
      */
-    open func on(event: String, callback: @escaping NormalCallback) {
-        return self.connector.on(event: event, callback: callback)
+    open func on(_ event: String, callback: @escaping NormalCallback) {
+        return self.connector.on(event, callback: callback)
     }
     
     /**
@@ -51,8 +43,11 @@ open class EchoClient {
         - event: Event name
         - callback: Normal callback
      */
-    open func on(clientEvent: SocketClientEvent, callback: @escaping NormalCallback) {
-        return self.connector.on(clientEvent: clientEvent, callback: callback)
+    open func on(_ clientEvent: SocketClientEvent, callback: @escaping NormalCallback) {
+        guard let socketIOConnector = self.connector as? SocketIOConnector else {
+            return
+        }
+        return socketIOConnector.on(clientEvent: clientEvent, callback: callback)
     }
     
     /**
@@ -65,7 +60,7 @@ open class EchoClient {
      - Returns: The listened channel
     */
     @discardableResult open func listen(channel: String, event: String, callback: @escaping NormalCallback) -> ChannelType {
-        return self.connector.listen(name: channel, event: event, callback: callback);
+        return self.connector.listen(channel: channel, event: event, callback: callback);
     }
     
     /**

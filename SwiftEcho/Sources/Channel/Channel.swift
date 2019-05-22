@@ -29,7 +29,7 @@ class Channel: ChannelType {
         - callback: Normal callback
      - Returns: The channel itself
      */
-    func listen(event: String, callback: @escaping NormalCallback) -> ChannelType {
+    func listen(_ event: String, _ callback: @escaping NormalCallback) -> ChannelType {
         return self
     }
     
@@ -39,8 +39,8 @@ class Channel: ChannelType {
      - Parameter callback: Normal callback
      - Returns: The channel itself
      */
-    func notification(callback: @escaping NormalCallback) -> ChannelType {
-        return self.listen(event: ".Illuminate.Notifications.Events.BroadcastNotificationCreated", callback: callback)
+    func notification(_ callback: @escaping NormalCallback) -> ChannelType {
+        return self.listen(".Illuminate.Notifications.Events.BroadcastNotificationCreated", callback)
     }
     
     /**
@@ -51,8 +51,8 @@ class Channel: ChannelType {
         - callback: Normal callback
      - Returns: The channel itself
      */
-    func listenForWhisper(event: String, callback: @escaping NormalCallback) -> ChannelType {
-        return self.listen(event: ".client-" + event, callback: callback)
+    func listenForWhisper(_ event: String, _ callback: @escaping NormalCallback) -> ChannelType {
+        return self.listen(".client-" + event, callback)
     }
     
     // Unsubscribe from channel and ubind event callbacks.
