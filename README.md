@@ -1,4 +1,4 @@
-SwiftEcho
+# SwiftEcho
 A Swift wrapper for Laravel Echo (WIP)
 
 ## TODO
