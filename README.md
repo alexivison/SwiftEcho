@@ -36,7 +36,7 @@ import SwiftEcho
 ```
 class ViewController: UIViewController {
     
-    private var echo: Echo!
+    private var echoClient: EchoClient!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
             ]
         ]
         
-        self.echo = Echo(options: options)
+        self.echoClient = EchoClient(options: options)
     }
 }
 ```
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
 
 ### Channel connection
 ```
-echo.connected { (data, ack) in
+echoClient.connected { (data, ack) in
     ...
 }
 ```
@@ -75,14 +75,14 @@ echo.connected { (data, ack) in
 
 ### Listen to a channel
 ```
-echo.join(channel: "chat.\(chatId)")
+echoClient.join(channel: "chat.\(chatId)")
     .listen(event: "comment.created", callback: { (data, ack) in
         ...
     })
 ```
 ### Joining a presence channel
 ```
-echo.join(presenceChannel: "users.\(chatId)")
+echoClient.join(presenceChannel: "users.\(chatId)")
     .here(callback: { (data, ack) in
         ...
     })
