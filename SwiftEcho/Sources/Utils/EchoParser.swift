@@ -9,6 +9,7 @@
 import Foundation
 
 open class EchoParser {
+    public static let shared = EchoParser()
     
     /**
      Parse the socket.io response data into readable form
@@ -18,7 +19,7 @@ open class EchoParser {
         - to: Type to parse into
      - Returns: Object of given type, containing the parsed data
      */
-    func parse<T: Codable>(data passedData: [Any], to dataType: T.Type) -> T? {
+    open func parse<T: Codable>(data passedData: [Any], to dataType: T.Type) -> T? {
         do {
             let encodedData = try self.encode(passedData[1])
             let decodedData = try self.decode(dataType, from: encodedData)
