@@ -66,8 +66,9 @@ class ViewController: UIViewController {
 | namespace    | "App.Events"        | Default laravel echo server namespace                                             |
 
 ### Channel connection
+#### SocketIO
 ```
-echoClient.connected { (data, ack) in
+echoClient.on(.connect) { (data, ack) in
     ...
 }
 ```
@@ -76,20 +77,20 @@ echoClient.connected { (data, ack) in
 ### Listen to a channel
 ```
 echoClient.join(channel: "chat.\(chatId)")
-    .listen(event: "comment.created", callback: { (data, ack) in
+    .listen("comment.created", { (data, ack) in
         ...
     })
 ```
 ### Joining a presence channel
 ```
 echoClient.join(presenceChannel: "users.\(chatId)")
-    .here(callback: { (data, ack) in
+    .here({ (data, ack) in
         ...
     })
-    .joining(callback: { (data, ack) in
+    .joining({ (data, ack) in
         ...
     })
-    .leaving(callback: { (data, ack) in
+    .leaving({ (data, ack) in
         ...
     })
 ```
