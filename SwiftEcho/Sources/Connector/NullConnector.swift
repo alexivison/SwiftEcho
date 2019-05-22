@@ -10,12 +10,14 @@ import Foundation
 import SocketIO
 
 open class NullConnector: ConnectorType {
-    
+
     private var channels = [String: ChannelType]()
 
     func connect() {}
     
     func on(event: String, callback: @escaping NormalCallback) {}
+    
+    func on(clientEvent: SocketClientEvent, callback: @escaping NormalCallback) {}
     
     func channel(name: String) -> ChannelType {
         return NullChannel()
