@@ -19,8 +19,8 @@ class SocketIOPrivateChannel: SocketIoChannel, PrivateChannelType {
         - name: The channel name
         - options: Options for the channel
      */
-    override init(socket: SocketIOClient, name: String, options: [String: Any]){
-        super.init(socket: socket, name: name, options: options)
+    override init(socket: SocketIOClient, name: String, echoConfig: EchoClientConfiguration) {
+        super.init(socket: socket, name: name, echoConfig: echoConfig)
     }
     
     /**
@@ -31,7 +31,7 @@ class SocketIOPrivateChannel: SocketIoChannel, PrivateChannelType {
         - data: Data send
      - Returns: The private channel itself
      */
-    func whisper(eventName: String, data: [AnyObject]) -> PrivateChannelType{
+    func whisper(eventName: String, data: [AnyObject]) -> PrivateChannelType {
         self.socket.emit("client event", [
             "channel": self.name,
             "event": "client-" + eventName,

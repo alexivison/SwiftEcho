@@ -19,8 +19,8 @@ class SocketIOPresenceChannel: SocketIoChannel, PresenceChannelType {
         - name: The channel name
         - options: Options for the channel
      */
-    override init(socket: SocketIOClient, name: String, options: [String: Any]){
-        super.init(socket: socket, name: name, options: options)
+    override init(socket: SocketIOClient, name: String, echoConfig: EchoClientConfiguration) {
+        super.init(socket: socket, name: name, echoConfig: echoConfig)
     }
     
     /**

@@ -10,15 +10,16 @@ import Foundation
 import SocketIO
 
 class Channel: ChannelType {
-    private var options: [String: Any]
+
+    private var echoConfig: EchoClientConfiguration
     
     /**
      Create new Channel
      
      - Parameter options: options
      */
-    init (options: [String: Any]) {
-        self.options = options
+    init (echoConfig: EchoClientConfiguration) {
+        self.echoConfig = echoConfig
     }
     
     /**
