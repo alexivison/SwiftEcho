@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		528133ED2296E65C00FD37C2 /* EchoClientOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528133EC2296E65C00FD37C2 /* EchoClientOption.swift */; };
 		EB065AEB2292846F009EB138 /* ConnectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB065AE92292846F009EB138 /* ConnectorType.swift */; };
 		EB065AF022950ED4009EB138 /* NullConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB065AEF22950ED4009EB138 /* NullConnector.swift */; };
 		EB065AF6229511DC009EB138 /* NullChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB065AF5229511DC009EB138 /* NullChannel.swift */; };
 		EB065AF822951F33009EB138 /* NullPrivateChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB065AF722951F33009EB138 /* NullPrivateChannel.swift */; };
 		EB065AFA22951F8C009EB138 /* NullPresenceChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB065AF922951F8C009EB138 /* NullPresenceChannel.swift */; };
+		EB065B05229644CD009EB138 /* EchoClientConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB065B04229644CD009EB138 /* EchoClientConfiguration.swift */; };
 		EB7D8EEA22893DA5008A784B /* SwiftEcho.h in Headers */ = {isa = PBXBuildFile; fileRef = EB7D8EDC22893DA4008A784B /* SwiftEcho.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB7D8EFC22893EF3008A784B /* PresenceChannelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8EF522893EF3008A784B /* PresenceChannelType.swift */; };
 		EB7D8EFD22893EF3008A784B /* SocketIOChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8EF622893EF3008A784B /* SocketIOChannel.swift */; };
@@ -40,12 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		528133EC2296E65C00FD37C2 /* EchoClientOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoClientOption.swift; sourceTree = "<group>"; };
 		EB065ADF228E9808009EB138 /* Example.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Example.xcodeproj; path = Example/Example.xcodeproj; sourceTree = "<group>"; };
 		EB065AE92292846F009EB138 /* ConnectorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectorType.swift; sourceTree = "<group>"; };
 		EB065AEF22950ED4009EB138 /* NullConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullConnector.swift; sourceTree = "<group>"; };
 		EB065AF5229511DC009EB138 /* NullChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullChannel.swift; sourceTree = "<group>"; };
 		EB065AF722951F33009EB138 /* NullPrivateChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullPrivateChannel.swift; sourceTree = "<group>"; };
 		EB065AF922951F8C009EB138 /* NullPresenceChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullPresenceChannel.swift; sourceTree = "<group>"; };
+		EB065B04229644CD009EB138 /* EchoClientConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoClientConfiguration.swift; sourceTree = "<group>"; };
 		EB7D8ED922893DA4008A784B /* SwiftEcho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftEcho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7D8EDC22893DA4008A784B /* SwiftEcho.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftEcho.h; sourceTree = "<group>"; };
 		EB7D8EDD22893DA4008A784B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +116,15 @@
 			path = Type;
 			sourceTree = "<group>";
 		};
+		EB065B03229644B3009EB138 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				EB065B04229644CD009EB138 /* EchoClientConfiguration.swift */,
+				528133EC2296E65C00FD37C2 /* EchoClientOption.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		EB7D8ECF22893DA4008A784B = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				EB7D8F0E22893F0B008A784B /* EchoClient.swift */,
+				EB065B03229644B3009EB138 /* Configuration */,
 				EB7D8F0922893F0B008A784B /* Utils */,
 				EB7D8F0322893EFC008A784B /* Connector */,
 				EB7D8EF422893EF3008A784B /* Channel */,
@@ -324,8 +338,10 @@
 				EB7D8F1022893F0B008A784B /* EventFormatter.swift in Sources */,
 				EB7D8EFF22893EF3008A784B /* PrivateChannelType.swift in Sources */,
 				EB065AEB2292846F009EB138 /* ConnectorType.swift in Sources */,
+				EB065B05229644CD009EB138 /* EchoClientConfiguration.swift in Sources */,
 				EB065AF022950ED4009EB138 /* NullConnector.swift in Sources */,
 				EB7D8F0022893EF3008A784B /* SocketIOPresenceChannel.swift in Sources */,
+				528133ED2296E65C00FD37C2 /* EchoClientOption.swift in Sources */,
 				EB7D8F0122893EF3008A784B /* SocketIOPrivateChannel.swift in Sources */,
 				EB7D8F1322893F0B008A784B /* EchoClient.swift in Sources */,
 				EB7D8F0722893EFC008A784B /* SocketIOConnector.swift in Sources */,

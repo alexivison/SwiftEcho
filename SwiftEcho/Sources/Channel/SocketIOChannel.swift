@@ -10,11 +10,22 @@ import Foundation
 import SocketIO
 
 class SocketIoChannel: Channel {
+    
+    var echoConfig: EchoClientConfiguration
+
     var socket: SocketIOClient
+
     var name: String
-    var auth: [String: Any]
-    var eventFormatter: EventFormatter
-    var events : [String: [NormalCallback]]
+
+    var eventFormatter = EventFormatter()
+
+    var events = [String: [NormalCallback]]()
+    
+    var auth = [String: Any]()
+    
+    var authEndpoint: String = "/broadcasting/auth"
+    
+    var namespace: String = "App.Events"
     
     /**
      Create a new class instance.
@@ -24,26 +35,13 @@ class SocketIoChannel: Channel {
         - name: The channel name
         - options: Options for the channel
      */
-    init(socket: SocketIOClient, name: String, options: [String: Any]) {
-        self.name = name
+    init(socket: SocketIOClient, name: String, echoConfig: EchoClientConfiguration) {
+        self.echoConfig = echoConfig
         self.socket = socket
-        self.events = [:]
-        
-        var namespace = ""
-        if let wrapperNamespace = options["namespace"] as? String {
-            namespace = wrapperNamespace
-        }
-        
-        self.auth = [:]
-        if let wrapperAuth = options["auth"] as? [String: Any] {
-            self.auth = wrapperAuth
-        }
-        
-        self.eventFormatter = EventFormatter(namespace: namespace)
-        
-        super.init(options: options)
-        
-        self.subscribe()
+        self.name = name
+        super.init(echoConfig: echoConfig)
+
+        self.configure()
         self.configureReconnector()
     }
     
@@ -71,6 +69,27 @@ class SocketIoChannel: Channel {
     override func listen(_ event: String, _ callback: @escaping NormalCallback) -> ChannelType {
         self.on(event: self.eventFormatter.format(event: event), callback: callback)
         return self
+    }
+    
+    /**
+     Extract the needed options from EchoClient configuration and
+     store them in values
+     */
+    func configure() {
+        for option in self.echoConfig {
+            switch option {
+            case .auth(let auth):
+                self.auth = auth
+            case .authEndpoint(let authEndpoint):
+                self.authEndpoint = authEndpoint
+            case .namespace(let namespace):
+                self.namespace = namespace
+            default:
+                continue
+            }
+        }
+        self.eventFormatter = EventFormatter(namespace: self.namespace)
+        self.subscribe()
     }
     
     /**
@@ -109,7 +128,7 @@ class SocketIoChannel: Channel {
         - callback: Normal callback
      */
     func bind(event: String, callback: @escaping NormalCallback) {
-        if(self.events[event] == nil) {
+        if self.events[event] == nil {
             self.events[event] = []
         }
         self.events[event]!.append(callback)

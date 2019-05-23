@@ -17,19 +17,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Options
-        let options: [String: Any] = [
-            "host": "https://host.address.com", // Replace with Your host
-            "auth": [
-                "headers": [
-                    "Authorization": "Bearer " + "token" // If the server uses auth, replace with a valid token
-                ]
-            ]
-        ]
+        let host = "https://host.address.com"
+        let auth = [
+            "headers": [
+                "Authorization": "Bearer " + "token"]]
         
         // Init
-        self.echo = EchoClient(options: options)
-        self.echo.on(.connect) { (data, _) in
+        self.echo = EchoClient(config: [
+            .broadcaster(.socketIO),
+            .host(host),
+            .auth(auth)])
+
+        self.echo.connect { (_, _) in
             // Listening a channel
             self.echo.join(channel: "chat.\(self.chatId)")
                 .listen("comment.created", { (data, ack) in
@@ -51,6 +50,7 @@ class ViewController: UIViewController {
                 .leaving({ (data, ack) in
                     
                 })
+
         }
     }
 }

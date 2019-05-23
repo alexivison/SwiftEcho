@@ -10,54 +10,51 @@ import Foundation
 import SocketIO
 
 open class SocketIOConnector: ConnectorType {
+    
+    private var config: SocketIOClientConfiguration
+    
+    private var echoConfig: EchoClientConfiguration
+    
+    private var host: String = ""
+    
     private var manager: SocketManager?
+    
     private var socket: SocketIOClient?
     
-    // Default connector options.
-    private var defaultOptions: [String: Any] = [
-        "auth": [
-            "headers": []],
-        "authEndpoint": "/broadcasting/auth",
-        "broadcaster": "socket.io",
-        "host": "",
-        "key": "",
-        "namespace": "App.Events"]
-
-    // Passed connector options.
-    private var options: [String: Any]
-    
-    // All of the subscribed channels.
-    private var channels: [String: ChannelType]
+    private var channels = [String: ChannelType]()
     
     /**
      Create a new class instance.
      
      - Parameter options: Custom options
      */
-    public init(options: [String: Any]) {
-        self.options = options
-        self.channels = [:]
-        self.setOptions(options: options)
-        self.connect()
+    public init(echoConfig: EchoClientConfiguration, config: SocketIOClientConfiguration?) {
+        self.config = config ?? []
+        self.echoConfig = echoConfig
+        self.configure()
     }
     
     /**
-     Merge the custom options with the defaults.
-     
-     - Parameter options: Custom options
+     Extract the needed options from EchoClient configuration and
+     store them in values
      */
-    open func setOptions(options: [String: Any]) {
-        self.options =  self.mergeOptions(options: options)
+    private func configure() {
+        for option in self.echoConfig {
+            switch option {
+            case .host(let host):
+                self.host = host
+            default:
+                continue
+            }
+        }
+        self.connect()
     }
     
     // Create a fresh Socket.io connection.
     open func connect() {
-        if let url = self.options["host"] as? String {
-            let nurl: URL! = URL(string: url)
-            self.manager = SocketManager(socketURL: nurl, config: [.log(true), .compress, .forceWebsockets(true)])
-            self.socket = manager?.defaultSocket
-            self.socket?.connect()
-        }
+        self.manager = SocketManager(socketURL: URL(string: self.host)!, config: self.config)
+        self.socket = manager?.defaultSocket
+        self.socket?.connect()
     }
     
     /**
@@ -105,7 +102,7 @@ open class SocketIOConnector: ConnectorType {
         if self.channels[name] == nil {
             let socket: SocketIOClient! = self.socket
             self.channels[name] = SocketIoChannel(
-                socket: socket, name: name, options: self.options)
+                socket: socket, name: name, echoConfig: self.echoConfig)
         }
         return self.channels[name]!
     }
@@ -120,7 +117,7 @@ open class SocketIOConnector: ConnectorType {
         if self.channels["private-" + name] == nil {
             let socket: SocketIOClient! = self.socket
             self.channels["private-" + name] = SocketIOPrivateChannel(
-                socket: socket, name: "private-" + name, options: self.options)
+                socket: socket, name: "private-" + name, echoConfig: self.echoConfig)
         }
         return self.channels["private-" + name]! as! PrivateChannelType
     }
@@ -135,7 +132,7 @@ open class SocketIOConnector: ConnectorType {
         if self.channels["presence-" + name] == nil {
             let socket: SocketIOClient! = self.socket
             self.channels["presence-" + name] = SocketIOPresenceChannel(
-                socket: socket, name: "presence-" + name, options: self.options)
+                socket: socket, name: "presence-" + name, echoConfig: self.echoConfig)
         }
         return self.channels["presence-" + name]! as! PresenceChannelType
     }
@@ -171,20 +168,6 @@ open class SocketIOConnector: ConnectorType {
     open func disconnect() {
         let socket: SocketIOClient! = self.socket
         socket.disconnect()
-    }
-    
-    /**
-     Merge options with default
-     
-     - Parameter options: Custom options
-     - Returns: Merged options
-     */
-    private func mergeOptions(options : [String: Any]) -> [String: Any] {
-        var def = self.defaultOptions
-        for (k, v) in options {
-            def[k] = v
-        }
-        return def
     }
 }
 

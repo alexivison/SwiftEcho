@@ -10,8 +10,16 @@ import Foundation
 import SocketIO
 
 open class EchoClient {
+    
     private var connector: ConnectorType
-    private var options: [String: Any]
+    
+    private var broadcaster: Broadcaster?
+    
+    private var config: EchoClientConfiguration
+    
+    public var socketIOConfig: SocketIOClientConfiguration?
+    
+    public var pusherConfig: Void?
     
     /**
      Create a new class instance.
@@ -20,9 +28,46 @@ open class EchoClient {
         - options: options
         - log: disable or enable log output
      */
-    public init(options: [String: Any]) {
-        self.options = options
-        self.connector = SocketIOConnector(options: self.options)
+    public init(config: EchoClientConfiguration) {
+        self.config = config
+        self.connector = NullConnector()
+        self.configure()
+    }
+    
+    /**
+     Extract the needed options from EchoClient configuration and
+     store them in values
+     */
+    private func configure() {
+        for option in self.config {
+            switch option {
+            case .broadcaster(let broadcaster):
+                self.broadcaster = broadcaster
+            default:
+                continue
+            }
+        }
+    }
+    
+    /**
+     Connect the socket
+     
+     - Parameter callback: Normal callback: Called after a connection is established.
+     */
+    public func connect(_ callback: @escaping NormalCallback) {
+        // Check for required values
+        guard let broadcaster = self.broadcaster else {
+            fatalError("No broadcaster provided. Please make sure to pass a broadcaster as an option.")
+        }
+        // Init the connector base on the broadcaster
+        switch broadcaster {
+        case .socketIO:
+            self.connector = SocketIOConnector(echoConfig: self.config, config: self.socketIOConfig)
+            return self.on(.connect, callback: callback)
+        case .pusher: // TODO: Pusher implementation
+            self.connector = NullConnector()
+            return
+        }
     }
     
     /**
