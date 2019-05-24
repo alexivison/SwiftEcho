@@ -64,7 +64,7 @@ open class SocketIOConnector: ConnectorType {
         - event: Event name
         - callback: Normal callback
      */
-    open func on(_ event: String, callback: @escaping NormalCallback) {
+    open func on(_ event: String, _ callback: @escaping NormalCallback) {
         self.socket!.on(event, callback: callback)
     }
     
@@ -88,7 +88,7 @@ open class SocketIOConnector: ConnectorType {
         - callback: Normal callback
      - Returns: The channel
      */
-    open func listen(channel: String, event: String, callback: @escaping NormalCallback) -> ChannelType {
+    open func listen(channel: String, event: String, _ callback: @escaping NormalCallback) -> ChannelType {
         return self.channel(name: channel).listen(event, callback)
     }
     

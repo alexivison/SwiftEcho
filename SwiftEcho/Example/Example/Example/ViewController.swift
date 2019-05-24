@@ -51,6 +51,10 @@ class ViewController: UIViewController {
                     
                 })
 
+            // Error handling
+            self.echo.on(socketIOEvent: .error, { (error, _) in
+                
+            })
         }
     }
 }

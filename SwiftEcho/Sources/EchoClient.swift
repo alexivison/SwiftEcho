@@ -63,7 +63,7 @@ open class EchoClient {
         switch broadcaster {
         case .socketIO:
             self.connector = SocketIOConnector(echoConfig: self.config, config: self.socketIOConfig)
-            return self.on(.connect, callback: callback)
+            return self.on(socketIOEvent: .connect, callback)
         case .pusher: // TODO: Pusher implementation
             self.connector = NullConnector()
             return
@@ -78,7 +78,7 @@ open class EchoClient {
         - callback: Normal callback
      */
     open func on(_ event: String, callback: @escaping NormalCallback) {
-        return self.connector.on(event, callback: callback)
+        return self.connector.on(event, callback)
     }
     
     /**
@@ -88,11 +88,11 @@ open class EchoClient {
         - event: Event name
         - callback: Normal callback
      */
-    open func on(_ clientEvent: SocketClientEvent, callback: @escaping NormalCallback) {
+    open func on(socketIOEvent: SocketClientEvent, _ callback: @escaping NormalCallback) {
         guard let socketIOConnector = self.connector as? SocketIOConnector else {
             return
         }
-        return socketIOConnector.on(clientEvent: clientEvent, callback: callback)
+        return socketIOConnector.on(clientEvent: socketIOEvent, callback: callback)
     }
     
     /**
@@ -105,7 +105,7 @@ open class EchoClient {
      - Returns: The listened channel
     */
     @discardableResult open func listen(channel: String, event: String, callback: @escaping NormalCallback) -> ChannelType {
-        return self.connector.listen(channel: channel, event: event, callback: callback);
+        return self.connector.listen(channel: channel, event: event, callback);
     }
     
     /**

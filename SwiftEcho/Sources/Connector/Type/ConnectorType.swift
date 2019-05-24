@@ -21,7 +21,7 @@ protocol ConnectorType {
         - event: Event name
         - callback: Normal callback
      */
-    func on(_ event: String, callback: @escaping NormalCallback)
+    func on(_ event: String, _ callback: @escaping NormalCallback)
     
     /**
      Get a channel instance by name.
@@ -40,7 +40,7 @@ protocol ConnectorType {
         - callback: Normal callback
      - Returns: The channel
      */
-    func listen(channel: String, event: String, callback: @escaping NormalCallback) -> ChannelType
+    func listen(channel: String, event: String, _ callback: @escaping NormalCallback) -> ChannelType
     
     /**
      Get a private channel instance by name.
