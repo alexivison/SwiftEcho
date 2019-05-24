@@ -12,7 +12,7 @@ A Swift wrapper for Laravel Echo (WIP)
 Add the following to your cartfile
 
 ```
-github "onlinesalon/SwiftEcho" ~> 1.0.1
+github "onlinesalon/SwiftEcho" ~> 1.1.0
 ```
 Run carthage update
 
@@ -31,7 +31,7 @@ Import the package
 import SwiftEcho
 ```
 
-### Initialize Echo instance with options
+### Initialize Echo instance
 
 ```
 class ViewController: UIViewController {
@@ -41,34 +41,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let options: [String: Any] = [
-            "host": "https://host.address.com",
-            "auth": [
-                "headers": [
-                    "Authorization": "Bearer " + "token"
-                ]
-            ]
-        ]
+        // Authentication details
+        let authToken = "auth_token"
+        let auth = ["headers": ["Authorization": "Bearer \(authToken)"]]
         
-        self.echoClient = EchoClient(options: options)
+        // Init the client with configuration
+        self.echoClient = EchoClient(config: [
+            .broadcaster(.socketIO),
+            .host("https://api-host.com"),
+            .auth(auth)])
+        
     }
 }
 ```
 
 ## Available options
-|     Name     |    Default value    | Information                                                                       |
-|:------------:|:-------------------:|-----------------------------------------------------------------------------------|
-| auth         | "headers": []       | Authentication values. Use this for passing authentication headers. (See example) |
-| authEndpoint | "broadcasting/auth" | The default laravel echo server endpoint                                          |
-| broadcaster  | "socket.io"         | Broadcaster instance. (Currently only socket.io is supported)                     |
-| host         | ""                  | Address for the server hosting the socket                                         |
-| key          | ""                  | Pusher key (WIP)                                                                  |
-| namespace    | "App.Events"        | Default laravel echo server namespace                                             |
+|     Name        |    Default value    | Information                                                                       |
+|:---------------:|:-------------------:|-----------------------------------------------------------------------------------|
+| `.broadcaster`  | nil                 | Broadcaster instance. (Currently only socket.io is supported)                     |
+| `.auth`         | []                  | Authentication values. Use this for passing authentication headers. (See example) |
+| `.authEndpoint` | "broadcasting/auth" | The default laravel echo server endpoint                                          |
+| `.host`         | ""                  | Address for the server hosting the socket                                         |
+| `.key`          | ""                  | Pusher key (WIP)                                                                  |
+| `.namespace`    | "App.Events"        | Default laravel echo server namespace                                             |
 
 ### Channel connection
 #### SocketIO
 ```
-echoClient.on(.connect) { (data, ack) in
+echoClient.connect { (data, ack) in
+    // Do something after the connection is established
     ...
 }
 ```
