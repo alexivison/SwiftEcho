@@ -12,7 +12,7 @@ A Swift wrapper for Laravel Echo (WIP)
 Add the following to your cartfile
 
 ```
-github "onlinesalon/SwiftEcho" ~> 1.1.0
+github "tuominen-aleksi/SwiftEcho" ~> 1.1.0
 ```
 Run carthage update
 
