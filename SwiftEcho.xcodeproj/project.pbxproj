@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		EBEA9ABC22F935DE009E5110 /* UniversalSwiftEcho */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = EBEA9ABD22F935DE009E5110 /* Build configuration list for PBXAggregateTarget "UniversalSwiftEcho" */;
+			buildPhases = (
+				EBEA9AC022F935F3009E5110 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = UniversalSwiftEcho;
+			productName = UniversalSwiftEcho;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		528133ED2296E65C00FD37C2 /* EchoClientOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528133EC2296E65C00FD37C2 /* EchoClientOption.swift */; };
 		EB065AEB2292846F009EB138 /* ConnectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB065AE92292846F009EB138 /* ConnectorType.swift */; };
@@ -27,21 +41,12 @@
 		EB7D8F1122893F0B008A784B /* EchoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8F0B22893F0B008A784B /* EchoParser.swift */; };
 		EB7D8F1322893F0B008A784B /* EchoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8F0E22893F0B008A784B /* EchoClient.swift */; };
 		EB847324228A68C400817894 /* SwiftEcho-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB847323228A68C400817894 /* SwiftEcho-Swift.h */; };
+		EBEA9ABA22F93541009E5110 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA9AB822F93541009E5110 /* SocketIO.framework */; };
+		EBEA9ABB22F93541009E5110 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA9AB922F93541009E5110 /* Starscream.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EB065AE3228E9809009EB138 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB065ADF228E9808009EB138 /* Example.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EB065ACA228E9805009EB138;
-			remoteInfo = Example;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		528133EC2296E65C00FD37C2 /* EchoClientOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoClientOption.swift; sourceTree = "<group>"; };
-		EB065ADF228E9808009EB138 /* Example.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Example.xcodeproj; path = Example/Example.xcodeproj; sourceTree = "<group>"; };
 		EB065AE92292846F009EB138 /* ConnectorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectorType.swift; sourceTree = "<group>"; };
 		EB065AEF22950ED4009EB138 /* NullConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullConnector.swift; sourceTree = "<group>"; };
 		EB065AF5229511DC009EB138 /* NullChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullChannel.swift; sourceTree = "<group>"; };
@@ -63,6 +68,8 @@
 		EB7D8F0B22893F0B008A784B /* EchoParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoParser.swift; sourceTree = "<group>"; };
 		EB7D8F0E22893F0B008A784B /* EchoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoClient.swift; sourceTree = "<group>"; };
 		EB847323228A68C400817894 /* SwiftEcho-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftEcho-Swift.h"; sourceTree = "<group>"; };
+		EBEA9AB822F93541009E5110 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/iOS/SocketIO.framework; sourceTree = SOURCE_ROOT; };
+		EBEA9AB922F93541009E5110 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,28 +77,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEA9ABA22F93541009E5110 /* SocketIO.framework in Frameworks */,
+				EBEA9ABB22F93541009E5110 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EB065A9B228E925E009EB138 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				EB065ADF228E9808009EB138 /* Example.xcodeproj */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
-		EB065AE0228E9808009EB138 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EB065AE4228E9809009EB138 /* Example.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		EB065AF32295114E009EB138 /* Type */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +131,7 @@
 		EB7D8EDB22893DA4008A784B /* SwiftEcho */ = {
 			isa = PBXGroup;
 			children = (
-				EB065A9B228E925E009EB138 /* Example */,
+				EBEA9AB322F93422009E5110 /* SwiftEcho-framework */,
 				EB7D8EF322893E44008A784B /* Sources */,
 				EB7D8EDC22893DA4008A784B /* SwiftEcho.h */,
 				EB847323228A68C400817894 /* SwiftEcho-Swift.h */,
@@ -193,6 +186,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		EBEA9AB322F93422009E5110 /* SwiftEcho-framework */ = {
+			isa = PBXGroup;
+			children = (
+				EBEA9AB822F93541009E5110 /* SocketIO.framework */,
+				EBEA9AB922F93541009E5110 /* Starscream.framework */,
+			);
+			path = "SwiftEcho-framework";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -240,6 +242,9 @@
 					EB7D8ED822893DA4008A784B = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
+					EBEA9ABC22F935DE009E5110 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 				};
 			};
 			buildConfigurationList = EB7D8ED322893DA4008A784B /* Build configuration list for PBXProject "SwiftEcho" */;
@@ -252,28 +257,13 @@
 			mainGroup = EB7D8ECF22893DA4008A784B;
 			productRefGroup = EB7D8EDA22893DA4008A784B /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = EB065AE0228E9808009EB138 /* Products */;
-					ProjectRef = EB065ADF228E9808009EB138 /* Example.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				EB7D8ED822893DA4008A784B /* SwiftEcho */,
+				EBEA9ABC22F935DE009E5110 /* UniversalSwiftEcho */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		EB065AE4228E9809009EB138 /* Example.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Example.app;
-			remoteRef = EB065AE3228E9809009EB138 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EB7D8ED722893DA4008A784B /* Resources */ = {
@@ -307,6 +297,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "carthage copy-frameworks\n";
+		};
+		EBEA9AC022F935F3009E5110 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"SwiftEcho\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"SwiftEcho\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/SwiftEcho.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/SwiftEcho.framework/Modules/SwiftEcho.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/SwiftEcho.framework/Modules/SwiftEcho.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/SwiftEcho.framework/SwiftEcho\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/SwiftEcho.framework/SwiftEcho\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/SwiftEcho.framework/SwiftEcho\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -523,6 +530,22 @@
 			};
 			name = Release;
 		};
+		EBEA9ABE22F935DE009E5110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EBEA9ABF22F935DE009E5110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -540,6 +563,15 @@
 			buildConfigurations = (
 				EB7D8EEE22893DA5008A784B /* Debug */,
 				EB7D8EEF22893DA5008A784B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBEA9ABD22F935DE009E5110 /* Build configuration list for PBXAggregateTarget "UniversalSwiftEcho" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBEA9ABE22F935DE009E5110 /* Debug */,
+				EBEA9ABF22F935DE009E5110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
