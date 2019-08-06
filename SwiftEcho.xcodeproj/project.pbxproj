@@ -41,8 +41,6 @@
 		EB7D8F1122893F0B008A784B /* EchoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8F0B22893F0B008A784B /* EchoParser.swift */; };
 		EB7D8F1322893F0B008A784B /* EchoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8F0E22893F0B008A784B /* EchoClient.swift */; };
 		EB847324228A68C400817894 /* SwiftEcho-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB847323228A68C400817894 /* SwiftEcho-Swift.h */; };
-		EBEA9ABA22F93541009E5110 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA9AB822F93541009E5110 /* SocketIO.framework */; };
-		EBEA9ABB22F93541009E5110 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA9AB922F93541009E5110 /* Starscream.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,8 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBEA9ABA22F93541009E5110 /* SocketIO.framework in Frameworks */,
-				EBEA9ABB22F93541009E5110 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +212,6 @@
 			buildPhases = (
 				EB7D8ED422893DA4008A784B /* Headers */,
 				EB7D8ED522893DA4008A784B /* Sources */,
-				EB84731D228A53BD00817894 /* Carthage */,
 				EB7D8ED622893DA4008A784B /* Frameworks */,
 				EB7D8ED722893DA4008A784B /* Resources */,
 			);
@@ -276,28 +271,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		EB84731D228A53BD00817894 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SocketIO.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SocketIO.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Starscream.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "carthage copy-frameworks\n";
-		};
 		EBEA9AC022F935F3009E5110 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
