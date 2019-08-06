@@ -26,8 +26,6 @@
 		EB7D8F1022893F0B008A784B /* EventFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8F0A22893F0B008A784B /* EventFormatter.swift */; };
 		EB7D8F1122893F0B008A784B /* EchoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8F0B22893F0B008A784B /* EchoParser.swift */; };
 		EB7D8F1322893F0B008A784B /* EchoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8F0E22893F0B008A784B /* EchoClient.swift */; };
-		EB847321228A549C00817894 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB84731F228A549B00817894 /* SocketIO.framework */; };
-		EB847322228A549C00817894 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB847320228A549C00817894 /* Starscream.framework */; };
 		EB847324228A68C400817894 /* SwiftEcho-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB847323228A68C400817894 /* SwiftEcho-Swift.h */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +62,6 @@
 		EB7D8F0A22893F0B008A784B /* EventFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventFormatter.swift; sourceTree = "<group>"; };
 		EB7D8F0B22893F0B008A784B /* EchoParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoParser.swift; sourceTree = "<group>"; };
 		EB7D8F0E22893F0B008A784B /* EchoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoClient.swift; sourceTree = "<group>"; };
-		EB84731F228A549B00817894 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/iOS/SocketIO.framework; sourceTree = "<group>"; };
-		EB847320228A549C00817894 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		EB847323228A68C400817894 /* SwiftEcho-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftEcho-Swift.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,8 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB847321228A549C00817894 /* SocketIO.framework in Frameworks */,
-				EB847322228A549C00817894 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +124,6 @@
 			children = (
 				EB7D8EDB22893DA4008A784B /* SwiftEcho */,
 				EB7D8EDA22893DA4008A784B /* Products */,
-				EB84731E228A549B00817894 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,15 +191,6 @@
 				EB7D8F0B22893F0B008A784B /* EchoParser.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		EB84731E228A549B00817894 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EB84731F228A549B00817894 /* SocketIO.framework */,
-				EB847320228A549C00817894 /* Starscream.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
