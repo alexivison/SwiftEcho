@@ -36,6 +36,15 @@ public struct EchoClientConfiguration: ExpressibleByArrayLiteral, Collection {
             backingArray[position] = newValue
         }
     }
+
+    public subscript(bounds: Range<Array<EchoClientOption>.Index>) -> Array<EchoClientOption>.SubSequence {
+        get {
+            return backingArray[bounds.startIndex..<bounds.endIndex]
+        }
+        set {
+            backingArray[bounds.startIndex..<bounds.endIndex] = newValue
+        }
+    }
     
     public init(arrayLiteral elements: Element...) {
         backingArray = elements
