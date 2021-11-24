@@ -104,3 +104,10 @@ echoClient.join(presenceChannel: "users.\(chatId)")
         ...
     })
 ```
+
+## How To Build
+
+```
+./scripts/carthage.sh bootstrap --use-ssh --cache-builds --platform iOS
+open ./SwiftEcho.xcodeproj
+```
